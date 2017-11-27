@@ -1,0 +1,26 @@
+<html ng-app="app" >
+        <head>
+            <title>Midterm Practice</title>
+            <!-- include angular -->
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    
+            <script type="text/javascript" src="javascripts/app.js"></script>
+            <link rel="stylesheet" type="text/CSS" href="stylesheets/style.css">
+        </head>
+    
+        <body ng-controller="mainCtrl">
+            <div>
+                <h3>Person List</h3>
+                <form ng-submit="vote()">
+                    <ul>
+                    <li ng-repeat="person in persons">
+                        <input type="checkbox"> - {{person.name}}
+                    </li>
+                    </ul>
+                    <button type="submit">Submit Votes</button>
+                </form>
+                
+            </div>
+        </body>
+    
+    </html>

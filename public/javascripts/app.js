@@ -15,5 +15,6 @@ function mainCtrl($scope, $http){
             name: $scope.name,
             votes: 0
         });
+        $scope.name = '';
     }
 }
