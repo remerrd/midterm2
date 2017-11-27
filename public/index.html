@@ -15,7 +15,11 @@
 
         <div>
             <h3>Employee List</h3>
-            {{test}}
+            <ol>
+                <li ng-repeat="person in persons | orderBy:'-votes'">
+                    {{person.name}} -- {{person.votes}}
+                </li>
+            </ol>
         </div>
     </body>
 
