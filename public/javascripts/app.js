@@ -22,10 +22,12 @@ function mainCtrl($scope, $http){
 
     $scope.vote = function(){
         $scope.voted = [];
+        console.log("in vote")
         for (let i = 0; i < $scope.persons.length; i++){
             if ($scope.persons.selected){
                 $scope.voted.push($scope.persons[i])
             }
         }
+        console.log($scope.voted);
     }
 }
