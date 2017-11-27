@@ -6,15 +6,26 @@ function mainCtrl($scope, $http){
     $scope.test = "HELLO WORLD!";
 
     $scope.persons = [];
-    $scope.persons.push({name:"Fred", votes:0});
-    $scope.persons.push({name:"Bob", votes:2});
-    $scope.persons.push({name:"Me", votes:1});
+    $scope.persons.push({name:"Fred", votes:0, selected:0});
+    $scope.persons.push({name:"Bob", votes:2, selected:0});
+    $scope.persons.push({name:"Me", votes:1, selected:0});
+    $scope.voted = [];
 
     $scope.addPerson = function(){
         $scope.persons.push({
             name: $scope.name,
-            votes: 0
+            votes: 0,
+            selected:0
         });
         $scope.name = '';
+    }
+
+    $scope.vote = function(){
+        $scope.voted = [];
+        for (let i = 0; i < $scope.persons.length; i++){
+            if ($scope.persons.selected){
+                $scope.voted.push($scope.persons[i])
+            }
+        }
     }
 }

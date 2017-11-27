@@ -12,14 +12,16 @@
             <div>
                 <h3>Person List</h3>
                 <form ng-submit="vote()">
-                    <ul>
-                    <li ng-repeat="person in persons">
-                        <input type="checkbox"> - {{person.name}}
-                    </li>
-                    </ul>
+                    <p ng-repeat="person in persons">
+                        <input type="checkbox" ng-model="person.selected"> - {{person.name}}
+                    </p>
                     <button type="submit">Submit Votes</button>
                 </form>
-                
+            </div>
+
+            <div>
+                <h3>Voted For:</h3>
+                <p ng-repeat="x in voted">{{x.name}}</p>
             </div>
         </body>
     

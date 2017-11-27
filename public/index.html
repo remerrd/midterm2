@@ -22,7 +22,7 @@
         <div>
             <h3>Person List</h3>
             <ol>
-                <li ng-repeat="person in persons | orderBy:'-votes'">
+                <li ng-repeat="person in persons | orderBy:['-votes','name']">
                     {{person.name}} -- {{person.votes}}
                 </li>
             </ol>
