@@ -18,12 +18,19 @@ function mainCtrl($scope, $http){
 
 
     $scope.addPerson = function(){
-        $scope.persons.push({
+        var newPerson = {
             name: $scope.name,
             votes: 0,
             selected:0
-        });
+        };
         $scope.name = '';
+
+        //post person to server
+        $http.post('/persons')
+            .then(function(data){
+                console.log("POSTED");
+                $scope.persons.push(newPerson);
+            })
     }
 
     $scope.vote = function(){

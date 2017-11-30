@@ -22,7 +22,7 @@
 
             <div>
                 <h3>Voted For:</h3>
-                <p ng-repeat="x in voted">{{x.name}}</p>
+                <p ng-repeat="x in voted | orderBy: ['name']">{{x.name}}</p>
             </div>
         </body>
     
