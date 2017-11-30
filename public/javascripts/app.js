@@ -24,6 +24,7 @@ function mainCtrl($scope, $http){
         $scope.voted = [];
         console.log("in vote")
         for (let i = 0; i < $scope.persons.length; i++){
+            console.log($scope.persons[i]);
             if ($scope.persons.selected){
                 $scope.voted.push($scope.persons[i])
             }
