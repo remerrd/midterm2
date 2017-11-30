@@ -22,11 +22,15 @@ function mainCtrl($scope, $http){
 
     $scope.vote = function(){
         $scope.voted = [];
+        //report selected canidates
         for (let i = 0; i < $scope.persons.length; i++){
-            console.log($scope.persons[i]);
             if ($scope.persons[i].selected == true){
                 $scope.voted.push($scope.persons[i])
             }
         }
+        //send to server
+
+
+
     }
 }
