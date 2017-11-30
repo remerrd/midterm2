@@ -3,13 +3,18 @@ var app = window.angular.module('app',[]);
 app.controller('mainCtrl',mainCtrl);
 
 function mainCtrl($scope, $http){
-    $scope.test = "HELLO WORLD!";
-
     $scope.persons = [];
-    $scope.persons.push({name:"Fred", votes:0, selected:0});
-    $scope.persons.push({name:"Bob", votes:2, selected:0});
-    $scope.persons.push({name:"Me", votes:1, selected:0});
     $scope.voted = [];
+
+    //get persons from back-end
+    $scope.getAll = function(){
+        return $http
+            .get('/persons').success(function(data){
+                $scope.persons = data;
+            })
+    }
+
+
 
     $scope.addPerson = function(){
         $scope.persons.push({
@@ -29,8 +34,5 @@ function mainCtrl($scope, $http){
             }
         }
         //send to server
-
-
-
     }
 }
