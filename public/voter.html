@@ -13,7 +13,7 @@
             <div>
                 <h3>Person List</h3>
                 <form ng-submit="vote()">
-                    <p ng-repeat="person in persons">
+                    <p ng-repeat="person in persons | orderBy: ['name']">
                         <input type="checkbox" ng-model="person.selected"> - {{person.name}}
                     </p>
                     <button type="submit">Submit Votes</button>

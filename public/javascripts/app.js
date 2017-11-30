@@ -10,8 +10,6 @@ function mainCtrl($scope, $http){
     $scope.getAll = function(){
         return $http.get('/persons')
             .then(function(data){
-                console.log("GOT INFO");
-                console.log(data.data);
                 angular.copy(data.data,$scope.persons);
             });
     }
@@ -33,7 +31,7 @@ function mainCtrl($scope, $http){
         //report selected canidates
         for (let i = 0; i < $scope.persons.length; i++){
             if ($scope.persons[i].selected == true){
-                $scope.voted.push($scope.persons[i])
+                $scope.voted.push($scope.persons[i]);
             }
         }
         //send to server
