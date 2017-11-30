@@ -22,14 +22,11 @@ function mainCtrl($scope, $http){
 
     $scope.vote = function(){
         $scope.voted = [];
-        console.log("in vote")
         for (let i = 0; i < $scope.persons.length; i++){
             console.log($scope.persons[i]);
-            if ($scope.persons.selected == true){
-                console.log("Pushed");
+            if ($scope.persons[i].selected == true){
                 $scope.voted.push($scope.persons[i])
             }
         }
-        console.log($scope.voted);
     }
 }
