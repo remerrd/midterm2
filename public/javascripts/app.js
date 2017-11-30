@@ -8,15 +8,13 @@ function mainCtrl($scope, $http){
 
     //get persons from back-end
     $scope.getAll = function(){
-        return $http
-            .get('/persons').success(function(data){
+        return $http.get('/persons').then(function(data){
                 console.log("GOT INFO");
                 console.log(data);
                 $scope.persons = data;
-            })
+            });
     }
-
-    $scope.persons = $scope.getAll();
+    $scope.getAll();
 
 
 
