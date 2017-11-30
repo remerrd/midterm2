@@ -14,6 +14,8 @@ function mainCtrl($scope, $http){
             })
     }
 
+    $scope.getAll();
+
 
 
     $scope.addPerson = function(){
