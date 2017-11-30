@@ -26,7 +26,7 @@ function mainCtrl($scope, $http){
         $scope.name = '';
 
         //post person to server
-        $http.post('/persons')
+        $http.post('/persons',newPerson)
             .then(function(data){
                 console.log("POSTED");
                 $scope.persons.push(newPerson);
