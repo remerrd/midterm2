@@ -10,11 +10,13 @@ function mainCtrl($scope, $http){
     $scope.getAll = function(){
         return $http
             .get('/persons').success(function(data){
+                console.log("GOT INFO");
+                console.log(data);
                 $scope.persons = data;
             })
     }
 
-    $scope.getAll();
+    $scope.persons = $scope.getAll();
 
 
 
