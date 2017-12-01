@@ -64,6 +64,8 @@ router.get('/persons/:person', function(req,res){
 })
 
 router.put('/persons/:person/upvote', function(req,res,next){
+  console.log("Vote recieved for ");
+  console.log(req.person.name);
   req.person.upvote(function(err,person){
     if(err) return next(err);
     res.json(person);
