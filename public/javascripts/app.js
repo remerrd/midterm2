@@ -15,8 +15,6 @@ function mainCtrl($scope, $http){
     }
     $scope.getAll();
 
-
-
     $scope.addPerson = function(){
         var newPerson = {
             name: $scope.name,
@@ -49,6 +47,13 @@ function mainCtrl($scope, $http){
                     console.log("Vote Successful!");
                 })
         }
-
     }
+
+    $scope.delete = function(person){
+        $http.delete("/persons/" + person._id)
+            .then(function(data){
+                console.log("deleted!");
+            })
+    }
+
 }
