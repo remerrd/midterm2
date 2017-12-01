@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//mongodb
+var mongoose = require('mongoose');
+mongoose.connect('mongob://localhost/midterm2', {useMongoClient: true});
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 

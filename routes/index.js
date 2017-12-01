@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
+var mongoose = require('mongoose');
+
+var personSchema = new mongoose.Schema({
+  name: String,
+  votes: {type:Number, default:0},
+  selected: Number
+});
+
+mongoose.model('person',personSchema);
+
 //collection of canidates
 var persons = [];
 persons.push({name:"Fred", votes:0, selected:0});
