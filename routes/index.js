@@ -65,5 +65,13 @@ router.put('/persons/:person/upvote', function(req,res,next){
   })
 })
 
+router.delete('/persons/:person', function(req,res){
+  console.log("Deleting ")
+  console.log(req.person.name);
+
+  req.person.remove();
+  res.sendStatus(200);
+})
+
 
 module.exports = router;
