@@ -5,10 +5,9 @@ var personSchema = new mongoose.Schema({
   votes: {type:Number, default:0},
   selected: Number
 });
-
-var person = mongoose.model('person',personSchema);
-
 personSchema.methods.upvote = function(current){
     this.votes += 1;
     this.save(current);
 }
+
+mongoose.model('person',personSchema);
