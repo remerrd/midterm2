@@ -42,5 +42,13 @@ function mainCtrl($scope, $http){
             }
         }
         //send to server
+
+        for (let i = 0; i < $scope.voted.length; i++){
+            $http.put("/persons/" + voted[i]._id + "/upvote")
+                .then(function(data){
+                    console.log("Vote Successful!");
+                })
+        }
+
     }
 }

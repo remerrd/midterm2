@@ -63,5 +63,12 @@ router.get('/persons/:person', function(req,res){
   res.json(req.person);
 })
 
+router.put('/persons/:person/upvote', function(req,res,next){
+  req.person.upvote(function(err,person){
+    if(err) return next(err);
+    res.json(person);
+  })
+})
+
 
 module.exports = router;
