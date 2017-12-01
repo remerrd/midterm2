@@ -30,17 +30,26 @@ router.get('/voter', function(req, res, next) {
 
 router.get("/persons", function(req,res){
   console.log("in get persons");
-  res.json(persons);
+
+  person.find(function(err,persons){
+    if (err) return next(err);
+    res.json(persons);
+    console.log("Got persons from db");
+  })
 })
 
 router.post("/persons",function(req,res,next){
   console.log("in post persons");
   console.log(req.body);
-  var newPerson = req.body;
 
-  persons.push(newPerson);
+  var newPerson = new person(req.body);
 
-  res.json(newPerson);
+  newPerson.save(function(err,person){
+    if (err) return next(err);
+    res.json(person);
+    console.log("Posted to DB");
+    console.log(person);
+  })
 
 })
 

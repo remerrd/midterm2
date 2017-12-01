@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 //mongodb
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/midterm2', {useMongoClient: true});
-
+require('./models/person');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
