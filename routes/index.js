@@ -59,5 +59,9 @@ router.param('person',function(req,res,next,id){
   })
 })
 
+router.get('/persons/:person', function(req,res){
+  res.json(req.person);
+})
+
 
 module.exports = router;
