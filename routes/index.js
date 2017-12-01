@@ -2,15 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 //mongo db set up/connect
-var mongoose = require('mongoose');
 
-var personSchema = new mongoose.Schema({
-  name: String,
-  votes: {type:Number, default:0},
-  selected: Number
-});
-
-var person = mongoose.model('person',personSchema);
 
 
 /* GET home page. */
