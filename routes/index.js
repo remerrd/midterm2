@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+//mongo db set up/connect
 var mongoose = require('mongoose');
 
 var personSchema = new mongoose.Schema({
@@ -10,12 +11,6 @@ var personSchema = new mongoose.Schema({
 });
 
 var person = mongoose.model('person',personSchema);
-
-//collection of canidates
-var persons = [];
-persons.push({name:"Fred", votes:0, selected:0});
-persons.push({name:"Bob", votes:2, selected:0});
-persons.push({name:"Me", votes:1, selected:0});
 
 
 /* GET home page. */
@@ -50,7 +45,19 @@ router.post("/persons",function(req,res,next){
     console.log("Posted to DB");
     console.log(person);
   })
-
 })
+
+router.param('person',function(req,res,next,id){
+  var query = person.findById(id);
+
+  query.exec(function (err, person){
+    if (err) return next(err);
+    if (!person) return next("No person in database!");
+
+    req.person = person;
+    return next();
+  })
+})
+
 
 module.exports = router;
