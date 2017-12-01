@@ -52,6 +52,7 @@ function mainCtrl($scope, $http){
     $scope.delete = function(person){
         $http.delete("/persons/" + person._id)
             .then(function(data){
+                $scope.persons.splice($scope.persons.indexOf(person), 1);
                 console.log("deleted!");
             })
     }
