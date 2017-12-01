@@ -9,7 +9,7 @@ var personSchema = new mongoose.Schema({
   selected: Number
 });
 
-mongoose.model('person',personSchema);
+var person = mongoose.model('person',personSchema);
 
 //collection of canidates
 var persons = [];
